@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse bg-danger">
+    <div class="container-fluid">
+      <div class="col-sm-8">
+        <div class="navbar-header">
+          <a  class="navbar-brand " style="color:black">Pixogram</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <br><br><br><br>
+  <div class="container-fluid h-100">
+      <div class="row justify-content-center align-items-center h-100">
+          <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pixogram</h1>
+            <br>
+              <form (ngSubmit)="onSubmit()" #check="ngForm">
+                  <div class="form-group">
+                      <input  class="form-control form-control-lg" name="name" id="name" placeholder="User Name" type="text" [(ngModel)]="user.name" required/>
+                  </div>
+
+                  <div class="form-group">
+                      <input  class="form-control form-control-lg" name="email" id="email" placeholder="Email Id" type="text" [(ngModel)]="user.email" required/>
+                  </div>
+
+                  <div class="form-group">
+                      <input class="form-control form-control-lg" name="password" id="password" placeholder="Password" type="password" [(ngModel)]="user.password" required/>
+                  </div>
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-info btn-lg btn-block"  [disabled]="!check.valid">Sign Up</button>
+                  </div>
+              </form>
+              <div class="form-group">
+                  <p>Didn't Have Account ? Click <a routerLink="/userlogin" >Here</a></p>
+                </div>
+          </div>
+      </div>
+  </div>

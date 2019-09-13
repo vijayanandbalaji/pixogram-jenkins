@@ -1,0 +1,64 @@
+<nav class="navbar navbar-inverse bg-danger">
+  <div class="container-fluid">
+    <div class="col-sm-8">
+      <div class="navbar-header">
+        <a routerLink="/userhome" class="navbar-brand " style="color:black">Pixogram</a>
+      </div>
+    </div>
+
+    <div class="navbar-form navbar-right">
+        <a routerLink=""> <button class="btn btn-dark " type="submit">Log Out</button></a>
+    </div>
+  </div>
+</nav>
+
+<br>
+<div class="row">
+
+  <div class="col-sm-4">
+    <div class="container">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="/assets/images/user.png" alt="Card image cap">
+        <a routerLink="/profilepic">Update Profile Pic</a>
+        <div class="card-body">
+          <h5 class="card-title">Welcome {{user.name}}</h5>
+          <a routerLink="/profile"><button type="submit" class="btn btn-dark">View Profile</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="container">
+      <h1>Pixogram</h1>
+      <br>
+
+      <form (ngSubmit)="onSearch(F)" #F="ngForm">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search For Friends" name="search" ngModel
+            #search="ngModel">
+
+        </div>
+      </form>
+      <br>
+
+
+      <div *ngFor="let find of  friends | async">
+        <div *ngIf="user.name != find.name">
+            <div class="d-flex justify-content-around ">
+              <div class="p-2 "> <img src="/assets/images/user.png" class="rounded-circle" width="40" height="40"></div>
+              <div class="p-2 "><b>{{find.name}}</b></div>
+              <div class="p-2"><button type="button" (click)="follow(find)" class="btn btn-primary">Follow</button></div>
+            </div>
+         
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+</div>

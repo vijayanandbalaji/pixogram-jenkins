@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+<nav class="navbar navbar-inverse bg-danger">
+  <div class="container-fluid">
+    <div class="col-sm-8">
+      <div class="navbar-header">
+        <a routerLink="/userhome" class="navbar-brand " style="color:black">Pixogram</a>
+      </div>
+    </div>
+
+    <div class="navbar-form navbar-right">
+      <a routerLink=""><button class="btn btn-dark " type="submit">Log Out</button></a>
+    </div>
+  </div>
+</nav>
+
+<br>
+<div class="row">
+
+  <div class="col-sm-4">
+    <div class="container">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="/assets/images/user.png" alt="Card image cap">
+        <a routerLink="/profilepic">Update Profile Pic</a>
+        <div class="card-body">
+          <h5 class="card-title">Welcome {{user.name}}</h5>
+          <a routerLink="/profile"><button type="submit" class="btn btn-dark">View Profile</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="container">
+      <h1>Pixogram</h1>
+      <br>
+      <br>
+      <div *ngFor="let post of  post | async">
+          <img src="/assets/images/user.png" class="rounded-circle" width="40" height="40">-<b>{{post.userId.name}}</b>
+          <br><br>
+          <div class="card img-fluid">
+              <b>{{post.title}}
+              <br><br>
+              {{post.description}}</b>
+              <img class="card-img-top" src="data:image/png;base64,{{post.image}}" alt="Card image" style="width:100%">
+             
+                  <p><i class="fas fa-heart"></i> {{post.liked}}</p>
+                  <p> <i class="fas fa-thumbs-down"></i> {{post.unlike}}</p>
+                  <p><i class="fas fa-comments"></i> 1</p>
+              
+              
+          </div>
+          <br>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="container">
+        <a routerLink="/findfriends">
+          <img style="width: 18rem" src="/assets/images/f2.jpg" alt="find friends">
+          Find Friends
+        </a>
+    </div>
+  </div>
+
+
+</div>
